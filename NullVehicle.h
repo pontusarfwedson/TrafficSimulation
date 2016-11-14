@@ -18,10 +18,10 @@ class NullVehicle : public Vehicle{
 private:
 	int length;
 public:
-	NullVehicle(char ddest){};
-	NullVehicle() {};
-	~NullVehicle() {}
-	std::string stringify(){};
+	NullVehicle(char ddest);
+	NullVehicle();
+	~NullVehicle();
+	std::string stringify();
 
 	bool isNull(){
 		return true;
