@@ -7,7 +7,10 @@
 
 #include "Vehicle.h"
 
-namespace vehicle {
+Vehicle::Vehicle(char ddest){
+	destination = ddest;
+	bornTime = 0;
+}
 
 Vehicle::Vehicle() {
 	// TODO Auto-generated constructor stub
@@ -18,4 +21,12 @@ Vehicle::~Vehicle() {
 	// TODO Auto-generated destructor stub
 }
 
-} /* namespace query_namespace */
+int Vehicle::getTime(){
+	return bornTime;
+}
+char Vehicle::getDestination(){
+	return destination;
+}
+string Vehicle::stringify(){
+	return destination;
+}

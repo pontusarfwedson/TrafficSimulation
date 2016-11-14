@@ -8,13 +8,19 @@
 #ifndef CAR_H_
 #define CAR_H_
 
-namespace car {
+#include <string>
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include <iostream>
 
-class Car {
+class Car : public Vehicle{
+private:
+	int length;
 public:
+	Car(char ddest);
 	Car();
 	virtual ~Car();
+	string stringify();
 };
-
-} /* namespace query_namespace */
 #endif /* CAR_H_ */

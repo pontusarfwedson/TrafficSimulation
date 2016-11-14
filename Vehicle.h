@@ -8,13 +8,24 @@
 #ifndef VEHICLE_H_
 #define VEHICLE_H_
 
-namespace vehicle {
+#include <string>
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include <iostream>
 
 class Vehicle {
+private:
+	int bornTime;
+	char destination;
 public:
 	Vehicle();
+	Vehicle(char ddest);
 	virtual ~Vehicle();
+	int getTime();
+	char getDestination();
+	string stringify();
+
 };
 
-} /* namespace query_namespace */
 #endif /* VEHICLE_H_ */

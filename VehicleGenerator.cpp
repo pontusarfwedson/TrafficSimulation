@@ -16,3 +16,11 @@ VehicleGenerator::~VehicleGenerator() {
 	// TODO Auto-generated destructor stub
 }
 
+/**
+ * Should generate a car OR truck OR null depending on probabilities.
+ */
+Vehicle VehicleGenerator::step(){
+	return new Car('W');
+	//return NULL;
+}
+

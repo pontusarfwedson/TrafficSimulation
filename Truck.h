@@ -8,13 +8,20 @@
 #ifndef TRUCK_H_
 #define TRUCK_H_
 
-namespace truck {
+#include <string>
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include <iostream>
 
-class Truck {
+class Truck : public Vehicle {
+private:
+	int length;
 public:
+	Truck(char ddest);
 	Truck();
 	virtual ~Truck();
+	string stringify();
 };
 
-} /* namespace query_namespace */
 #endif /* TRUCK_H_ */
