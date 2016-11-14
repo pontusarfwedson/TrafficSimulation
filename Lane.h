@@ -12,16 +12,9 @@
 #include <vector>
 #include <string>
 
-namespace lane {
-
 class Lane {
 private:
 std::vector<Vehicle> theLane;
-
-/*** Constructs a lane with a specified capacity
-* length is The length (capacity) of the lane in number of vehicles
-*/
-
 
 public:
 	Lane(int length);
@@ -33,6 +26,4 @@ public:
 	void putLast(Vehicle v);
 	virtual ~Lane();
 };
-
-} /* namespace query_namespace */
 #endif /* LANE_H_ */
