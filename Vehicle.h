@@ -25,6 +25,9 @@ public:
 	int getTime();
 	char getDestination();
 	std::string stringify();
+	bool isNull(){
+		return false;
+	}
 
 };
 
