@@ -14,8 +14,6 @@
 #include <stdlib.h>
 #include <iostream>
 
-namespace light{
-
 class Light {
 private:
 	int period;
@@ -26,10 +24,10 @@ public:
 	Light();
 	virtual ~Light();
 
+	int getTime();
 	void step();
 	bool isGreen();
-	string stringify();
+	std::string stringify();
 };
 
-} /* namespace query_namespace */
 #endif /* LIGHT_H_ */
