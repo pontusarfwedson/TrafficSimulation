@@ -7,7 +7,7 @@
 
 #include "Car.h"
 
-namespace query_namespace {
+namespace car {
 
 //2124
 Car::Car() {

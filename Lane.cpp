@@ -7,7 +7,7 @@
 
 #include "Lane.h"
 
-namespace query_namespace {
+namespace lane {
 
 Lane::Lane() {
 	// TODO Auto-generated constructor stub

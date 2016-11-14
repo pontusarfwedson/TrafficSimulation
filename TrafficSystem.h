@@ -8,7 +8,7 @@
 #ifndef TRAFFICSYSTEM_H_
 #define TRAFFICSYSTEM_H_
 
-namespace query_namespace {
+namespace trafficsystem {
 
 class TrafficSystem {
 public:

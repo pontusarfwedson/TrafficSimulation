@@ -31,6 +31,11 @@
 							</tool>
 						</toolChain>
 					</folderInfo>
+					<fileInfo id="0.1287298367.697214528" name="Light.h" rcbsApplicability="disable" resourcePath="Light.h" toolsToInvoke="org.eclipse.cdt.build.core.settings.holder.59083876.1495116300">
+						<tool id="org.eclipse.cdt.build.core.settings.holder.59083876.1495116300" name="GNU C++" superClass="org.eclipse.cdt.build.core.settings.holder.59083876">
+							<inputType id="org.eclipse.cdt.build.core.settings.holder.inType.2107518999" languageId="org.eclipse.cdt.core.g++" languageName="GNU C++" sourceContentType="org.eclipse.cdt.core.cxxSource,org.eclipse.cdt.core.cxxHeader" superClass="org.eclipse.cdt.build.core.settings.holder.inType"/>
+						</tool>
+					</fileInfo>
 				</configuration>
 			</storageModule>
 			<storageModule moduleId="org.eclipse.cdt.core.externalSettings"/>
@@ -44,5 +49,8 @@
 		<scannerConfigBuildInfo instanceId="0.1287298367">
 			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
 		</scannerConfigBuildInfo>
+	</storageModule>
+	<storageModule moduleId="refreshScope" versionNumber="1">
+		<resource resourceType="PROJECT" workspacePath="/TrafficSimulation"/>
 	</storageModule>
 </cproject>

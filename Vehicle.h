@@ -8,7 +8,7 @@
 #ifndef VEHICLE_H_
 #define VEHICLE_H_
 
-namespace query_namespace {
+namespace vehicle {
 
 class Vehicle {
 public:

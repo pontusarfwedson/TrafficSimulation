@@ -7,7 +7,7 @@
 
 #include "Truck.h"
 
-namespace query_namespace {
+namespace truck {
 
 Truck::Truck() {
 	// TODO Auto-generated constructor stub

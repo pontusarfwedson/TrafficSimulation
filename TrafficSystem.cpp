@@ -7,7 +7,7 @@
 
 #include "TrafficSystem.h"
 
-namespace query_namespace {
+namespace trafficsystem {
 
 TrafficSystem::TrafficSystem() {
 	// TODO Auto-generated constructor stub

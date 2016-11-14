@@ -8,7 +8,7 @@
 #ifndef CAR_H_
 #define CAR_H_
 
-namespace query_namespace {
+namespace car {
 
 class Car {
 public:

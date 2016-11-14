@@ -8,7 +8,7 @@
 #ifndef LANE_H_
 #define LANE_H_
 
-namespace query_namespace {
+namespace lane {
 
 class Lane {
 public:

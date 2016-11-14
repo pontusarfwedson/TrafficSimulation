@@ -8,7 +8,7 @@
 #ifndef TRUCK_H_
 #define TRUCK_H_
 
-namespace query_namespace {
+namespace truck {
 
 class Truck {
 public:
