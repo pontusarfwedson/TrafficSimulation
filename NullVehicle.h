@@ -14,14 +14,17 @@
 #include <stdlib.h>
 #include <iostream>
 
-class Car : public Vehicle{
+class NullVehicle : public Vehicle{
 private:
 	int length;
 public:
-	Car(char ddest);
-	Car();
-	virtual ~Car();
-	std::string stringify();
-	bool isNull();
+	NullVehicle(char ddest){};
+	NullVehicle() {};
+	~NullVehicle() {}
+	std::string stringify(){};
+
+	bool isNull(){
+		return true;
+	}
 };
 #endif /* CAR_H_ */

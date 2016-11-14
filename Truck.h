@@ -22,6 +22,9 @@ public:
 	Truck();
 	virtual ~Truck();
 	std::string stringify();
+	bool isNull(){
+		return false;
+	}
 };
 
 #endif /* TRUCK_H_ */
