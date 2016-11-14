@@ -9,6 +9,7 @@
 
 namespace query_namespace {
 
+//
 Car::Car() {
 	// TODO Auto-generated constructor stub
 
