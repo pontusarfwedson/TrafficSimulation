@@ -5,7 +5,7 @@
  *      Author: PontusArfwedson
  */
 
-#include "Car.h"
+#include "NullVehicle.h"
 
 NullVehicle::NullVehicle(char ddest){
 	destination = ddest;
