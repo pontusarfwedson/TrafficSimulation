@@ -27,6 +27,6 @@ int Vehicle::getTime(){
 char Vehicle::getDestination(){
 	return destination;
 }
-string Vehicle::stringify(){
+std::string Vehicle::stringify(){
 	return destination;
 }

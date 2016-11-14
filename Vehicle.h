@@ -24,7 +24,7 @@ public:
 	virtual ~Vehicle();
 	int getTime();
 	char getDestination();
-	string stringify();
+	std::string stringify();
 
 };
 

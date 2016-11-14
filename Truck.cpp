@@ -20,7 +20,7 @@ Truck::~Truck() {
 	// TODO Auto-generated destructor stub
 }
 
-string Truck::stringify(){
+std::string Truck::stringify(){
 	return "_" + destination + "_";
 }
  /* namespace query_namespace */

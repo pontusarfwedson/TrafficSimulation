@@ -21,6 +21,6 @@ public:
 	Car(char ddest);
 	Car();
 	virtual ~Car();
-	string stringify();
+	std::string stringify();
 };
 #endif /* CAR_H_ */

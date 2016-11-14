@@ -20,7 +20,7 @@ Car::~Car() {
 	// TODO Auto-generated destructor stub
 }
 
-string Car::stringify(){
+std::string Car::stringify(){
 	return destination;
 }
 

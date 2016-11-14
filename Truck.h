@@ -21,7 +21,7 @@ public:
 	Truck(char ddest);
 	Truck();
 	virtual ~Truck();
-	string stringify();
+	std::string stringify();
 };
 
 #endif /* TRUCK_H_ */
