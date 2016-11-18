@@ -7,14 +7,14 @@
 
 #include "Vehicle.h"
 
+//Default constructor
+Vehicle::Vehicle() {
+	// TODO Auto-generated constructor stub
+}
+
 Vehicle::Vehicle(char ddest){
 	destination = ddest;
 	bornTime = 0;
-}
-
-Vehicle::Vehicle() {
-	// TODO Auto-generated constructor stub
-
 }
 
 Vehicle::~Vehicle() {
