@@ -13,8 +13,9 @@
 #include <string.h>
 #include <stdlib.h>
 #include <iostream>
+#include "Vehicle.h"
 
-class NullVehicle : public Vehicle{
+class NullVehicle : public Vehicle {
 private:
 	int length;
 public:

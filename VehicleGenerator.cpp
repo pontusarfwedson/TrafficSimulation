@@ -7,7 +7,12 @@
 
 #include <fstream>
 #include <iostream>
+#include <stdlib.h>     /* srand, rand */
+#include <time.h>       /* time */
+#include <cstddef>
+#include <stdio.h>
 #include "VehicleGenerator.h"
+#include "NullVehicle.h"
 
 using namespace std;
 
@@ -32,72 +37,8 @@ VehicleGenerator::VehicleGenerator() {
   //TODO CHECK with Pontus if periods.get(periods.size()-1)
 	// is meants to get the last element of ArrayList.
 	totalCycle = periods.at(periods.size()-1);
-	time = 0;
+	myTime = 0;
 	period = 0;
-}
-
-/**
- * This constructor reads the arrival and turning probabilities for different time
- * periods from a file.
- * <p>
- * Each line of input defines the probabilities for a specific period with the
- * following contents <br>
- * <ol>
- *   <li> Number of time steps (int).</li>
- *   <li> Arrival probability (double) [0, 1].</li>
- *   <li> Turning probability (double) [0, 1].</li>
- *   <li> Optional comment. Ignored. </li>
- * </ol>
- * <p>
- * <b>Example:</b> The following five lines defines five periods of
- * length 100, 20, 60, 30 and 50, respectively with
- * different arrival and turning probabilities.
- *
- * <pre>
- *      100   0.2   0.3   Night
- *       20   0.8   0.8   Morning rush rush
- *       60   0.5   0.5   Day
- *       30   0.7   0.6   Afternoon rush
- *       50   0.8   0.4   Evening
- * </pre>
- *
- * @param filename name of file with probabilities (US conventions)
- */
-VehicleGenerator::VehicleGenerator(string filename)
-{
-	ifstream fin;
-  //TODO
-	//check Pontus with if "filemane" contains extensions
-	//Fg. myFile.txt
-	//I am assuming yes it contains.
-
-	fin.open(filename);
-	//checking if file is open successfully.
-	if(!fin.good())
-	{
-		cout << "ERROR: READING FILE FAILURE." << endl;
-	}
-	else
-	{
-		int limit = 0;
-		//reading until it reaches eof() {End of File}
-		while (!fin.eof()) {
-			/*TODO what does
-			* lineScanner.useLocale(Locale.US);
-			* do? */
-
-			
-
-			limit = limit + lineScanner.nextInt();
-			periods.add(limit);
-			arrivalProbabilities.add(lineScanner.nextDouble());
-			turningProbabilities.add(lineScanner.nextDouble());
-			comments.add(lineScanner.nextLine());
-		}
-		totalCycle = periods.get(periods.size()-1);
-		time = 0;
-		period = 0;
-	}
 }
 
 VehicleGenerator::~VehicleGenerator() {
@@ -108,7 +49,69 @@ VehicleGenerator::~VehicleGenerator() {
  * Should generate a car OR truck OR null depending on probabilities.
  */
 Vehicle VehicleGenerator::step(){
-	//Vehicle* temp = new Car('W');
-	//return *temp;
-	//return NULL;
+
+	myTime = myTime+1;
+    if (myTime >= totalCycle) {
+      myTime = 0;
+      period = 0;
+    }
+
+    if (myTime>=periods.at(period)) {
+      period++;
+    }
+
+    Vehicle retur = Vehicle(' ');
+    double prob = arrivalProbabilities.at(period);
+
+    if (((rand()%11)/10) < prob) {
+      if (((rand()%11)/10) < turningProbabilities.at(period)) {
+        retur = Vehicle('S');
+      } else {
+        retur = Vehicle('W');
+      }
+    }
+    return retur;
 }
+
+/**
+   * Returns the current state
+   */
+  string VehicleGenerator::toString() {
+
+		return to_string(myTime) + ": <" + to_string(period) + ", " + to_string(arrivalProbabilities.at(period))
+			+ ", " + to_string(turningProbabilities.at(period)) + ">";
+  }
+
+	/**
+   * Prints the current setup of the generator
+   */
+  void VehicleGenerator::print() {
+    int nsteps = 0;
+    for (int i= 0; i<periods.size(); i++) {
+			cout << periods.at(i) - nsteps << ", "
+				<< arrivalProbabilities.at(i) << ", "
+				<< turningProbabilities.at(i) << ", "
+				<< comments.at(i) << ", " << endl;
+			nsteps = periods.at(i);
+		}
+  }
+
+  int main() {
+		srand(time(0)); //TODO This should be called only once
+    VehicleGenerator vg = VehicleGenerator();
+    cout << "VehicleGenerator setup:" << endl;
+    vg.print();
+    cout << "\nStepping the generator:" << endl;
+    for (int i= 0; i<300; i++) {
+      vg.print();
+      Vehicle v = vg.step();
+      if (v.getDestination() != ' ') {
+        cout << "  Vehicle out: <" <<
+      		v.getDestination() << ", " << v.getTime() << ">" << endl;
+      }
+			else
+			{
+				cout << "  NO Vehicle out" << endl;
+			}
+    }
+  }

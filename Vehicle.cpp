@@ -5,7 +5,9 @@
  *      Author: PontusArfwedson
  */
 
+#include <string>
 #include "Vehicle.h"
+using namespace std;
 
 //Default constructor
 Vehicle::Vehicle() {
@@ -28,5 +30,5 @@ char Vehicle::getDestination(){
 	return destination;
 }
 std::string Vehicle::stringify(){
-	return destination;
+	return string(1, destination);
 }

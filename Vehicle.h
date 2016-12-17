@@ -15,7 +15,7 @@
 #include <iostream>
 
 class Vehicle {
-private:
+protected:
 	int bornTime;
 	char destination;
 public:

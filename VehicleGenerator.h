@@ -24,7 +24,7 @@ private:
 	vector<double> turningProbabilities;
 	vector<string> comments;
 
-	int time;       // internal clock
+	int myTime;       // internal clock
   int period;     // current period
   int totalCycle; // total time period
 
@@ -33,6 +33,8 @@ public:
 	VehicleGenerator(string);
 	virtual ~VehicleGenerator();
 	Vehicle step();
+	string toString();
+	void print();
 };
 
 #endif /* VEHICLEGENERATOR_H_ */
