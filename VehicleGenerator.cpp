@@ -64,6 +64,7 @@ Vehicle VehicleGenerator::step(){
     double prob = arrivalProbabilities.at(period);
 
     if (((rand()%11)/10.0) < prob) {
+			// determine destination.
       if (((rand()%11)/10.0) < turningProbabilities.at(period)) {
         retur = Vehicle('S');
       } else {

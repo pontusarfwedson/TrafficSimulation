@@ -14,6 +14,7 @@
 #include "VehicleGenerator.h"
 #include "Lane.h"
 #include "Light.h"
+#include "InvalidInput.h"
 using namespace std;
 
 namespace trafficsystem {
@@ -21,21 +22,40 @@ namespace trafficsystem {
 TrafficSystem::TrafficSystem(int laneLength, int laneWSLength,
     int lightPeriod, int lightWestGreen, int lightSouthGreen) {
 	  // TODO Auto-generated constructor stub
+    try{
 
-    this->laneLength      = laneLength;
-    this->laneWSLength    = laneWSLength;
-    this->lightPeriod     = lightPeriod;
-    this->lightWestGreen  = lightWestGreen;
-    this->lightSouthGreen = lightSouthGreen;
+      this->laneLength      = laneLength;
+      this->laneWSLength    = laneWSLength;
+      this->lightPeriod     = lightPeriod;
+      this->lightWestGreen  = lightWestGreen;
+      this->lightSouthGreen = lightSouthGreen;
 
-    generator     = VehicleGenerator();
-    lane          = Lane(laneLength);
-    laneWest      = Lane(laneWSLength);
-    laneExitWest  = Lane(3);             // Just for illustration
-    laneSouth     = Lane(laneWSLength);
-    laneExitSouth = Lane(3);             // Just for illustration
-    lightWest     = Light(lightPeriod, lightWestGreen);
-    lightSouth    = Light(lightPeriod, lightSouthGreen);
+      if(laneLength < 0 || laneWSLength < 0 || lightPeriod < 0
+          || lightWestGreen < 0 || lightSouthGreen < 0){
+          throw InvalidInput<int>(laneLength);
+      }
+
+      generator     = VehicleGenerator();
+      lane          = Lane(laneLength);
+      laneWest      = Lane(laneWSLength);
+      laneExitWest  = Lane(3);             // Just for illustration
+      laneSouth     = Lane(laneWSLength);
+      laneExitSouth = Lane(3);             // Just for illustration
+      lightWest     = Light(lightPeriod, lightWestGreen);
+      lightSouth    = Light(lightPeriod, lightSouthGreen);
+    }
+    catch(InvalidInput<int>& e) {
+      cout << "InvalidInput exception is caught" << endl;
+      cout << e.what() << endl;
+
+      // this->laneLength      = 1;
+      // this->laneWSLength    = 1;
+      // this->lightPeriod     = 1;
+      // this->lightWestGreen  = 1;
+      // this->lightSouthGreen = 1;
+    }
+
+
 }
 
 /**
@@ -162,7 +182,7 @@ int main() {
    *    lightSouthGreen :  4
    ************************/
 
-  trafficsystem::TrafficSystem tf = trafficsystem::TrafficSystem(10, 8, 14, 6, 4);
+  trafficsystem::TrafficSystem tf = trafficsystem::TrafficSystem(-10, 8, 14, 6, 4);
   tf.printSetup();
   tf.print();
   for(int i = 0; i < 100; i++) {
