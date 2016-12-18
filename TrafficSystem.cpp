@@ -126,8 +126,9 @@ TrafficSystem::TrafficSystem(int laneLength, int laneWSLength,
 
   string TrafficSystem::qtos() {
     string res = "";
-    for (int i = 0; i < queue.size(); i++) {
-      res += queue[i].stringify();
+    list<Vehicle>::iterator it;
+    for (it = queue.begin(); it != queue.end(); it++) {
+      res += it->stringify();
     }
     return '[' + res + ']';
   }

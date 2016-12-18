@@ -8,7 +8,7 @@
 #ifndef TRAFFICSYSTEM_H_
 #define TRAFFICSYSTEM_H_
 
-#include<vector>
+#include<list>
 #include<string>
 #include"Vehicle.h"
 #include"VehicleGenerator.h"
@@ -28,7 +28,7 @@ private:
 	int lightSouthGreen;
 
   VehicleGenerator generator;
-  vector<Vehicle> queue;
+  list<Vehicle> queue;
   Lane   lane;
   Lane   laneWest;
   Lane   laneExitWest;
