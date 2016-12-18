@@ -17,6 +17,7 @@ private:
 std::vector<Vehicle> theLane;
 
 public:
+	Lane();
 	Lane(int length);
 	std::string stringify();
 	void step();

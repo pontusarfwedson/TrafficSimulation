@@ -96,22 +96,22 @@ Vehicle VehicleGenerator::step(){
 		}
   }
 
-  int main() {
-		srand(time(0)); //TODO This should be called only once
-    VehicleGenerator vg = VehicleGenerator();
-    cout << "VehicleGenerator setup:" << endl;
-    vg.print();
-    cout << "\nStepping the generator:" << endl;
-    for (int i= 0; i<300; i++) {
-      vg.print();
-      Vehicle v = vg.step();
-      if (v.getDestination() != ' ') {
-        cout << "  Vehicle out: <" <<
-      		v.getDestination() << ", " << v.getTime() << ">" << endl;
-      }
-			else
-			{
-				cout << "  NO Vehicle out" << endl;
-			}
-    }
-  }
+  // int main() {
+	// 	srand(time(0)); //TODO This should be called only once
+  //   VehicleGenerator vg = VehicleGenerator();
+  //   cout << "VehicleGenerator setup:" << endl;
+  //   vg.print();
+  //   cout << "\nStepping the generator:" << endl;
+  //   for (int i= 0; i<300; i++) {
+  //     vg.print();
+  //     Vehicle v = vg.step();
+  //     if (v.getDestination() != ' ') {
+  //       cout << "  Vehicle out: <" <<
+  //     		v.getDestination() << ", " << v.getTime() << ">" << endl;
+  //     }
+	// 		else
+	// 		{
+	// 			cout << "  NO Vehicle out" << endl;
+	// 		}
+  //   }
+  // }

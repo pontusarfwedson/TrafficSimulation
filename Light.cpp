@@ -53,18 +53,18 @@ std::string Light::stringify(){
 	}
 }
 
-int main(){
-	Light * lightW = new Light(5, 3);
-	Light * lightS = new Light(5, 2);
-	for (int i=0; i<12; i++) {
-		std::cout << "***************************" << std::endl;
-		std::cout << i << ":  (5,3): " << lightW->stringify() << "  (5,2): " << lightS->stringify() << std::endl;
-		std::cout << i << ":  (5,3): " << lightW->getTime() << "  (5,2): " << lightS->getTime() << std::endl;
-		std::cout << "***************************" << std::endl;
-		lightW->step();
-		lightS->step();
-	}
-	return 0;
-}
+// int main(){
+// 	Light * lightW = new Light(5, 3);
+// 	Light * lightS = new Light(5, 2);
+// 	for (int i=0; i<12; i++) {
+// 		std::cout << "***************************" << std::endl;
+// 		std::cout << i << ":  (5,3): " << lightW->stringify() << "  (5,2): " << lightS->stringify() << std::endl;
+// 		std::cout << i << ":  (5,3): " << lightW->getTime() << "  (5,2): " << lightS->getTime() << std::endl;
+// 		std::cout << "***************************" << std::endl;
+// 		lightW->step();
+// 		lightS->step();
+// 	}
+// 	return 0;
+// }
 
 /* namespace light */

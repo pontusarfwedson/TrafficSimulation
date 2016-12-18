@@ -17,6 +17,8 @@
 #include <iostream>
 using namespace std;
 
+Lane::Lane() {
+}
 Lane::Lane(int length) {
 	// TODO Auto-generated constructor stub
   //std::fill(theLane.begin(),theLane.begin()+length, NullVehicle());;
@@ -85,25 +87,25 @@ Lane::~Lane() {
 	// TODO Auto-generated destructor stub
 }
 
-int main() {
-  srand(time(0));
-  Lane lane = Lane(10);
-
-  for (int i = 0; i<20; i++) {
-    if (lane.getFirst().getDestination() != ' ') {
-      cout << "Out from lane: " << lane.removeFirst().stringify() << endl;
-    }
-    lane.step();
-    if ((rand()%11)/10.0<0.5) {
-      lane.putLast(Vehicle('x'));
-    }
-    cout << lane.stringify() << endl;
-  }
-  cout << endl;
-  if (lane.lastFree()) {
-    lane.putLast(Vehicle('y'));
-    cout << lane.stringify() << endl;
-  }
-  cout << "Time to crash!" << endl;
-  lane.putLast(Vehicle('z'));
-}
+// int main() {
+//   srand(time(0));
+//   Lane lane = Lane(10);
+//
+//   for (int i = 0; i<20; i++) {
+//     if (lane.getFirst().getDestination() != ' ') {
+//       cout << "Out from lane: " << lane.removeFirst().stringify() << endl;
+//     }
+//     lane.step();
+//     if ((rand()%11)/10.0<0.5) {
+//       lane.putLast(Vehicle('x'));
+//     }
+//     cout << lane.stringify() << endl;
+//   }
+//   cout << endl;
+//   if (lane.lastFree()) {
+//     lane.putLast(Vehicle('y'));
+//     cout << lane.stringify() << endl;
+//   }
+//   cout << "Time to crash!" << endl;
+//   lane.putLast(Vehicle('z'));
+// }
