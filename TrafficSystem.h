@@ -27,7 +27,7 @@ private:
 	int lightWestGreen;
 	int lightSouthGreen;
 
-  VehicleGenerator generator;
+  vehicleGenerator::VehicleGenerator generator;
   list<Vehicle> queue;
   Lane   lane;
   Lane   laneWest;

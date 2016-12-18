@@ -16,25 +16,26 @@
 
 using namespace std;
 
-class VehicleGenerator {
+namespace vehicleGenerator {
+	class VehicleGenerator {
 
-private:
-	vector<int> periods;
-	vector<double> arrivalProbabilities;
-	vector<double> turningProbabilities;
-	vector<string> comments;
+	private:
+		vector<int> periods;
+		vector<double> arrivalProbabilities;
+		vector<double> turningProbabilities;
+		vector<string> comments;
 
-	int myTime;       // internal clock
-  int period;     // current period
-  int totalCycle; // total time period
+		int myTime;       // internal clock
+	  int period;     // current period
+	  int totalCycle; // total time period
 
-public:
-	VehicleGenerator();
-	VehicleGenerator(string);
-	virtual ~VehicleGenerator();
-	Vehicle step();
-	string toString();
-	void print();
-};
-
+	public:
+		VehicleGenerator();
+		VehicleGenerator(string);
+		virtual ~VehicleGenerator();
+		Vehicle step();
+		string toString();
+		void print();
+	};
+} // vehicleGenerator
 #endif /* VEHICLEGENERATOR_H_ */

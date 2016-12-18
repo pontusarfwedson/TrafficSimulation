@@ -15,6 +15,7 @@
 #include "NullVehicle.h"
 
 using namespace std;
+using namespace vehicleGenerator;
 
 /**
  * Hard coded probabilities for test purposes only.

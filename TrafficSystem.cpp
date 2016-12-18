@@ -30,12 +30,7 @@ TrafficSystem::TrafficSystem(int laneLength, int laneWSLength,
       this->lightWestGreen  = lightWestGreen;
       this->lightSouthGreen = lightSouthGreen;
 
-      if(laneLength < 0 || laneWSLength < 0 || lightPeriod < 0
-          || lightWestGreen < 0 || lightSouthGreen < 0){
-          throw InvalidInput<int>(laneLength);
-      }
-
-      generator     = VehicleGenerator();
+      generator     = vehicleGenerator::VehicleGenerator();
       lane          = Lane(laneLength);
       laneWest      = Lane(laneWSLength);
       laneExitWest  = Lane(3);             // Just for illustration
@@ -43,6 +38,11 @@ TrafficSystem::TrafficSystem(int laneLength, int laneWSLength,
       laneExitSouth = Lane(3);             // Just for illustration
       lightWest     = Light(lightPeriod, lightWestGreen);
       lightSouth    = Light(lightPeriod, lightSouthGreen);
+
+      if(laneLength < 0 || laneWSLength < 0 || lightPeriod < 0
+          || lightWestGreen < 0 || lightSouthGreen < 0){
+          throw InvalidInput<int>(laneLength);
+      }
     }
     catch(InvalidInput<int>& e) {
       cout << "InvalidInput exception is caught" << endl;
@@ -54,8 +54,6 @@ TrafficSystem::TrafficSystem(int laneLength, int laneWSLength,
       // this->lightWestGreen  = 1;
       // this->lightSouthGreen = 1;
     }
-
-
 }
 
 /**
@@ -182,7 +180,7 @@ int main() {
    *    lightSouthGreen :  4
    ************************/
 
-  trafficsystem::TrafficSystem tf = trafficsystem::TrafficSystem(-10, 8, 14, 6, 4);
+  trafficsystem::TrafficSystem tf = trafficsystem::TrafficSystem(10, 8, 14, 6, 4);
   tf.printSetup();
   tf.print();
   for(int i = 0; i < 100; i++) {

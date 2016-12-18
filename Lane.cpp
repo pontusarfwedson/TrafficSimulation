@@ -7,6 +7,7 @@
 
 #include "Lane.h"
 #include "Vehicle.h"
+#include "InvalidLength.h"
 #include <vector>
 #include <algorithm>
 #include <cstddef>
@@ -22,8 +23,17 @@ Lane::Lane() {
 Lane::Lane(int length) {
 	// TODO Auto-generated constructor stub
   //std::fill(theLane.begin(),theLane.begin()+length, NullVehicle());;
-  theLane.resize(length);
-  std::fill(theLane.begin(),theLane.begin()+length, Vehicle(' '));
+  try {
+    if(length < 0) {
+      throw InvalidLength();
+    }
+    theLane.resize(length);
+    std::fill(theLane.begin(),theLane.begin()+length, Vehicle(' '));
+  }
+  catch (InvalidLength e){
+    cout << "InvalidLength exception is caught" << endl;
+    cout << e.what() << endl;
+  }
 }
 
 std::string Lane::stringify() {
