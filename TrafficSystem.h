@@ -41,7 +41,7 @@ private:
   int queued; 		// Number of time steps with queued vehicles
 
 public:
-	TrafficSystem();
+	TrafficSystem(int, int, int, int, int);
 	void step();
 	void print();
 	string qtos();

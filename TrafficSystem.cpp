@@ -6,7 +6,9 @@
  */
 
 #include <iostream>
-#include<string>
+#include <string>
+//#include <time.h>
+#include <unistd.h>
 #include "TrafficSystem.h"
 #include "Vehicle.h"
 #include "VehicleGenerator.h"
@@ -16,8 +18,16 @@ using namespace std;
 
 namespace trafficsystem {
 
-TrafficSystem::TrafficSystem() {
-	// TODO Auto-generated constructor stub
+TrafficSystem::TrafficSystem(int laneLength, int laneWSLength,
+    int lightPeriod, int lightWestGreen, int lightSouthGreen) {
+	  // TODO Auto-generated constructor stub
+
+    this->laneLength      = laneLength;
+    this->laneWSLength    = laneWSLength;
+    this->lightPeriod     = lightPeriod;
+    this->lightWestGreen  = lightWestGreen;
+    this->lightSouthGreen = lightSouthGreen;
+
     generator     = VehicleGenerator();
     lane          = Lane(laneLength);
     laneWest      = Lane(laneWSLength);
@@ -110,7 +120,7 @@ TrafficSystem::TrafficSystem() {
     cout << laneExitWest.stringify() << " " << lightWest.stringify() << " " << laneWest.stringify();
     cout << lane.stringify();
     //cout << ln("   queue: " + qtos() + "  vg: " + generator);
-    cout << qtos() << "     " << generator.toString();
+    cout << qtos() << "     " << generator.toString() << endl;
     cout << laneExitSouth.stringify() << " " << lightSouth.stringify() << " " << laneSouth.stringify() << endl;;
   }
 
@@ -127,11 +137,11 @@ TrafficSystem::TrafficSystem() {
    */
   void TrafficSystem::printSetup() {
     cout << "Simulation parameters:" << endl;
-    cout << "\t laneLength     : %2d \n" << laneLength << endl;
-    cout << "\t laneWSLength   : %2d \n" << laneWSLength << endl;
-    cout << "\t lightPeriod    : %2d \n" << lightPeriod << endl;
-    cout << "\t lightSouthGreen: %2d \n" << lightSouthGreen << endl;
-    cout << "\t lightWestGreen : %2d \n" << lightWestGreen << endl;
+    cout << "\t laneLength     : " << laneLength << endl;
+    cout << "\t laneWSLength   : " << laneWSLength << endl;
+    cout << "\t lightPeriod    : " << lightPeriod << endl;
+    cout << "\t lightSouthGreen: " << lightSouthGreen << endl;
+    cout << "\t lightWestGreen : " << lightWestGreen << endl;
     cout << "\nTraffic periods and probabilities:" << endl;
     generator.print();
   }
@@ -141,3 +151,24 @@ TrafficSystem::~TrafficSystem() {
 }
 
 } /* namespace query_namespace */
+
+int main() {
+  /*************************
+   *    laneLength      : 10
+   *    laneWSLength    :  8
+   *    lightPeriod     : 14
+   *    lightWestGreen  :  6
+   *    lightSouthGreen :  4
+   ************************/
+
+  trafficsystem::TrafficSystem tf = trafficsystem::TrafficSystem(10, 8, 14, 6, 4);
+  tf.printSetup();
+  tf.print();
+  for(int i = 0; i < 100; i++) {
+    cout.flush();
+    usleep(10000);
+    //Sleep(10000); // for windows
+    tf.print();
+    tf.step();
+  }
+}
